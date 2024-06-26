@@ -1,0 +1,21 @@
+Hello there! If you are reading this, it means you are a member of Enquesta! (Or you accidentally got access to this file) 
+================================================================================================
+
+For non-coders, all you have to know is 5-6 files: (Currently 4) The questions.txt, answers.txt, main.py and main1.html
+
+In questions.txt, you enter each question in a separate line.
+In answers.txt, you enter each answer in a separate line(Preferably with numbering).
+
+Then, you run the main.py using PyCharm or the Python IDE.
+
+After all this, you double-click the main1.html file. Voila! The web-page opens!
+
+If you want to add stuff like text formatting, background formatting, etc., just contact the Enquesta Web-Dev Team (Currently only me, you can contact me through Edward or Kishor chettan)
+
+================================================================================================
+
+For coders, right now the only slightly complex piece of code is the main.py file. Just look through it and you can understand it. Right now, it has a hard-coded html part, a for loop for entering questions and a for-loop for answers. If you want to clarify any more doubts, just contact me.
+
+================================================================================================
+
+For the people who accidentally got access to this file, get out before the Enquesta Head gets you. Or worse, all the bugs in this code.
