@@ -40,8 +40,7 @@ with open(input_answers, 'r') as file:
 for x in range(0, len(answers)):
     html_content += '<section>\n'
     html_content += '<section>' + questions[x] + '</section>\n'
-    html_content += '<section data-background-image="memes/meme' + str(x) + ('.png" data-background-size="cover" data-background-position="center">'
-                                                                      '</section>')
+    html_content += '<section data-background-image="memes/meme' + str(x) + ('.png" data-background-size="cover" data-background-position="center"></section>\n')
     html_content += '<section>' + answers[x] + '</section>\n'
     html_content += '</section>\n'
 
