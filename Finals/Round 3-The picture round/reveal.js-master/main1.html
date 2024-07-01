@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangles in Reveal.js</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+    <style>
+        :root {
+            --rectangle-width: 100%;
+            --rectangle-height: 100%;
+        }
+        .main-slide{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 0px;
+            width: 100%;
+            height: 100%;
+        }
+        .parent-container{
+            width: 100vw;
+            height: 100vh;
+        }
+        .rectangle {
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            height: var(--rectangle-height); /* Full height of grid cell */
+            width: var(--rectangle-width); /* Full width of grid cell */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .rectangle:hover {
+            transform: scale(1.05);
+        }
+        .rectangle.transparent {
+            background-color: transparent;
+            opacity: 0; /* Adjust opacity as needed */
+        }
+        .option-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .option-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Main Slide with rectangles -->
+<section>
+<div>
+<div class="main-slide">
+<div class="rectangle" data-link="a2" data-index="1">1</div><div class="rectangle" data-link="a3" data-index="2">2</div><div class="rectangle" data-link="a4" data-index="3">3</div><div class="rectangle" data-link="a5" data-index="4">4</div><div class="rectangle" data-link="a6" data-index="5">5</div><div class="rectangle" data-link="a7" data-index="6">6</div><div class="rectangle" data-link="a8" data-index="7">7</div><div class="rectangle" data-link="a9" data-index="8">8</div><div class="rectangle" data-link="a10" data-index="9">9</div><div class="rectangle" data-link="a11" data-index="10">10</div><div class="rectangle" data-link="a12" data-index="11">11</div><div class="rectangle" data-link="a13" data-index="12">12</div><div class="rectangle" data-link="a14" data-index="13">13</div><div class="rectangle" data-link="a15" data-index="14">14</div><div class="rectangle" data-link="a16" data-index="15">15</div><div class="rectangle" data-link="a17" data-index="16">16</div></div></div>
+</section>
+<section id="a2">
+<section>What is the capital of France?
+</section>
+<section></section>
+<section><h3>Paris
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="1">Correct!(Removes Box)</button>
+<button class="change-color" data-index="1">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a3">
+<section>What are the benefits of a balanced diet?
+</section>
+<section></section>
+<section><h3>Increased health, mental fitness
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="2">Correct!(Removes Box)</button>
+<button class="change-color" data-index="2">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a4">
+<section>Goofy ahh question
+</section>
+<section></section>
+<section><h3>Goofy ahh answer
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="3">Correct!(Removes Box)</button>
+<button class="change-color" data-index="3">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a5">
+<section>Hooooooh
+</section>
+<section></section>
+<section><h3>Hooooooh
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="4">Correct!(Removes Box)</button>
+<button class="change-color" data-index="4">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a6">
+<section>Heeeeeh
+</section>
+<section></section>
+<section><h3>Heeeeeh
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="5">Correct!(Removes Box)</button>
+<button class="change-color" data-index="5">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a7">
+<section>Aaaah
+</section>
+<section></section>
+<section><h3>Aaaah
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="6">Correct!(Removes Box)</button>
+<button class="change-color" data-index="6">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a8">
+<section>Hayaaaaaaa
+</section>
+<section></section>
+<section><h3>Hayaaaaaaa
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="7">Correct!(Removes Box)</button>
+<button class="change-color" data-index="7">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a9">
+<section>Ok
+</section>
+<section></section>
+<section><h3>Ok
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="8">Correct!(Removes Box)</button>
+<button class="change-color" data-index="8">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a10">
+<section>I 
+</section>
+<section></section>
+<section><h3>I 
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="9">Correct!(Removes Box)</button>
+<button class="change-color" data-index="9">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a11">
+<section>Should 
+</section>
+<section></section>
+<section><h3>Should 
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="10">Correct!(Removes Box)</button>
+<button class="change-color" data-index="10">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a12">
+<section>Probably 
+</section>
+<section></section>
+<section><h3>Probably 
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="11">Correct!(Removes Box)</button>
+<button class="change-color" data-index="11">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a13">
+<section>Stop 
+</section>
+<section></section>
+<section><h3>Stop 
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="12">Correct!(Removes Box)</button>
+<button class="change-color" data-index="12">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a14">
+<section>Making
+</section>
+<section></section>
+<section><h3>Making
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="13">Correct!(Removes Box)</button>
+<button class="change-color" data-index="13">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a15">
+<section>Monkey 
+</section>
+<section></section>
+<section><h3>Monkey 
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="14">Correct!(Removes Box)</button>
+<button class="change-color" data-index="14">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a16">
+<section>Noises
+</section>
+<section></section>
+<section><h3>Noises
+</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="15">Correct!(Removes Box)</button>
+<button class="change-color" data-index="15">Wrong!(Reddens Box)</button>
+</section>
+</section>
+<section id="a17">
+<section>Now</section>
+<section></section>
+<section><h3>Now</h3>
+<div class="option-buttons"><button class="remove-rectangle" data-index="16">Correct!(Removes Box)</button>
+<button class="change-color" data-index="16">Wrong!(Reddens Box)</button>
+</section>
+</section>
+
+        </div>
+    </div>
+
+    <script src="plugin/unpkg.txt"></script>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainSlide = document.querySelector('.main-slide');
+
+            mainSlide.addEventListener('click', (event) => {
+                const rectangle = event.target.closest('.rectangle');
+                if (rectangle) {
+                    const link = rectangle.getAttribute('data-link');
+                    const targetSlide = document.querySelector(`#${link}`);
+                    if (targetSlide) {
+                        const slideIndex = [...document.querySelectorAll('.slides > section')].indexOf(targetSlide);
+                        Reveal.slide(slideIndex);
+                    }
+                }
+            });
+
+            function addOptionEventListeners() {
+                const removeButtons = document.querySelectorAll('.remove-rectangle');
+                const changeColorButtons = document.querySelectorAll('.change-color');
+
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const index = button.getAttribute('data-index') - 1;
+                        const rectangle = mainSlide.querySelector(`.rectangle[data-index="${index + 1}"]`);
+                        if (rectangle) {
+                            rectangle.classList.add('transparent'); // Make rectangle transparent
+                        }
+                    });
+                });
+
+                changeColorButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const index = button.getAttribute('data-index') - 1;
+                        const rectangle = mainSlide.querySelector(`.rectangle[data-index="${index + 1}"]`);
+                        if (rectangle) {
+                            rectangle.style.backgroundColor = 'red'; // Change to desired color
+                        }
+                        
+                    });
+                });
+            }
+
+            addOptionEventListeners();
+            function updateRectangleSizes() {
+                const mainSlide = document.querySelector('.main-slide');
+                const slideWidth = mainSlide.offsetWidth;
+                const slideHeight = mainSlide.offsetHeight;
+
+                // Calculate new dimensions for the rectangles
+                const rectangleWidth = slideWidth / 4;
+                const rectangleHeight = slideHeight / 4;
+
+                // Update CSS variables
+                document.documentElement.style.setProperty('--rectangle-width', `${rectangleWidth}px`);
+                document.documentElement.style.setProperty('--rectangle-height', `${rectangleHeight}px`);
+            }
+
+            // Call the function initially
+
+            // Update sizes on window resize
+        });
+    </script>
+</body>
+</html>
+
