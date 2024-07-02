@@ -92,7 +92,7 @@ with open(input_answers, 'r') as file:
             answers[z2] += lines2[i]
 
 # Rectangle Generation, Main Slide
-html_content += '<section>\n<div class="main-slide">\n'
+html_content += '<section data-background="Round3BG.png">\n<div class="main-slide">\n'
 for i in range(0,16):
     html_content += '<div class="rectangle" data-link="a'+str(i+2)+'" data-index="'+str(i+1)+'">'+str(i+1)+'</div>'
 html_content += '</div>\n</section>\n'
