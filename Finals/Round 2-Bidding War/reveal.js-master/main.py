@@ -54,7 +54,7 @@ with open(input_questions, 'r') as file:
             if(lines[y].startswith('-')):
                 z1 += 1
             questions[x1][z1] += lines[y]
-            questions[x1][z1].replace('-','',1)
+            questions[x1][z1].replace('-','')
 
 # Reading Answers
 rows2,cols2=len(topics), 4

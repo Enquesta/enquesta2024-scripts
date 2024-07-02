@@ -28,13 +28,27 @@ html_content = """
 			<div class="slides">
 """
 
-# Reading Questions
+#Reading Questions
+z1 = -1
+questions = ["" for _ in range(12)]
 with open(input_questions, 'r') as file:
-    questions = file.readlines()
+    lines1 = file.readlines()
+    for i in range(len(lines1)):
+        if (lines1[i].startswith('-')):
+            z1 += 1
+            questions[z1] += lines1[i]
 
-# Reading Answers
+
+
+#Reading Answers
+z2 = -1
+answers = ["" for _ in range(12)]
 with open(input_answers, 'r') as file:
-    answers = file.readlines()
+    lines2 = file.readlines()
+    for i in range(len(lines2)):
+        if (lines2[i].startswith('-')):
+            z2 += 1
+            answers[z2] += lines2[i]
 
 # Adding Questions and Answers
 for x in range(0, len(answers)):

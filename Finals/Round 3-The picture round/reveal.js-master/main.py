@@ -26,8 +26,10 @@ html_content += """
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(4, 1fr);
             gap: 0px;
-            width: 100%;
-            height: 100%;
+            margin-top: -2.5%;
+            margin-left: -10%;
+            width: 105vw;
+            height: 105vh;
         }
         .rectangle {
             background-color: #007bff;
@@ -68,12 +70,26 @@ html_content += """
 """
 
 #Reading Questions
+z1 = -1
+questions = ["" for _ in range(16)]
 with open(input_questions, 'r') as file:
-    questions = file.readlines()
+    lines1 = file.readlines()
+    for i in range(len(lines1)):
+        if (lines1[i].startswith('-')):
+            z1 += 1
+            questions[z1] += lines1[i]
+
+
 
 #Reading Answers
+z2 = -1
+answers = ["" for _ in range(16)]
 with open(input_answers, 'r') as file:
-    answers = file.readlines()
+    lines2 = file.readlines()
+    for i in range(len(lines2)):
+        if (lines2[i].startswith('-')):
+            z2 += 1
+            answers[z2] += lines2[i]
 
 # Rectangle Generation, Main Slide
 html_content += '<section>\n<div class="main-slide">\n'
@@ -86,7 +102,7 @@ for x in range(0, 16):
     html_content += '<section id="a'+str(x+2)+'">\n'
     html_content += '<section>' + questions[x] + '</section>\n'
     html_content += '<section></section>\n'
-    html_content += '<section><h3>' + answers[x] + '</h3>\n<div class="option-buttons"><button class="remove-rectangle" data-index="'+str(x+1)+'">Correct!(Removes Box)</button>\n<button class="change-color" data-index="'+str(x+1)+'">Wrong!(Reddens Box)</button>\n</section>\n'
+    html_content += '<section><p>' + answers[x] + '</p>\n<div class="option-buttons"><button class="remove-rectangle" data-index="'+str(x+1)+'">Correct!(Removes Box)</button>\n<button class="change-color" data-index="'+str(x+1)+'">Wrong!(Reddens Box)</button>\n</section>\n'
 
     html_content += '</section>\n'
 
@@ -155,11 +171,6 @@ html_content += """
                 document.documentElement.style.setProperty('--rectangle-height', `${rectangleHeight}px`);
             }
 
-            // Call the function initially
-            updateRectangleSizes();
-
-            // Update sizes on window resize
-            window.addEventListener('resize', updateRectangleSizes);
         });
     </script>
 </body>
