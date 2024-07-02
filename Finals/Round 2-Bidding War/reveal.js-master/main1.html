@@ -18,6 +18,11 @@
                 display: inline;
                 margin-right: 10px; /* Optional: Adds space between links */
         }
+        .disabled-link {
+            pointer-events: none;
+            color: grey;
+            text-decoration: none;
+        }
         </style>
 	</head>
 
@@ -27,23 +32,23 @@
 <section id=0>
 <div class="horizontal-links">
 <a href="#/Advertisements
-">Advertisements
+" class="one-time-link">Advertisements
 </a>
 <a href="#/Tech
-">Tech
+" class="one-time-link">Tech
 </a>
 <a href="#/Sports
-">Sports
+" class="one-time-link">Sports
 </a>
 <a href="#/Movies
-">Movies
+" class="one-time-link">Movies
 </a>
 </div>
 <div class="horizontal-links">
 <a href="#/Literature
-">Literature
+" class="one-time-link">Literature
 </a>
-<a href="#/Trivandrum Lore">Trivandrum Lore</a>
+<a href="#/Trivandrum Lore" class="one-time-link">Trivandrum Lore</a>
 </div>
 </section>
 <section id="Advertisements
@@ -276,6 +281,19 @@ One of them has 6 championship rings for the accomplishments in his field while 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.one-time-link');
+            
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Allow the link to function once
+                    setTimeout(() => {
+                        link.classList.add('disabled-link');
+                        link.removeAttribute('href');
+                    }, 100);
+                });
+            });
+        });
 		</script>
 	</body>
 </html>

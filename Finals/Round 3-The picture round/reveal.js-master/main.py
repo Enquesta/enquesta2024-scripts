@@ -61,6 +61,11 @@ html_content += """
             font-size: 16px;
             cursor: pointer;
         }
+        .disabled-link {
+            pointer-events: none;
+            color: grey;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -94,7 +99,7 @@ with open(input_answers, 'r') as file:
 # Rectangle Generation, Main Slide
 html_content += '<section data-background="Round3BG.png">\n<div class="main-slide">\n'
 for i in range(0,16):
-    html_content += '<div class="rectangle" data-link="a'+str(i+2)+'" data-index="'+str(i+1)+'">'+str(i+1)+'</div>'
+    html_content += '<div class="rectangle" data-link="a'+str(i+2)+'" data-index="'+str(i+1)+'" data-one-time="true">'+str(i+1)+'</div>'
 html_content += '</div>\n</section>\n'
 
 # Question Slide generation
@@ -157,19 +162,17 @@ html_content += """
             }
 
             addOptionEventListeners();
-                        function updateRectangleSizes() {
-                const mainSlide = document.querySelector('.main-slide');
-                const slideWidth = mainSlide.offsetWidth;
-                const slideHeight = mainSlide.offsetHeight;
-
-                // Calculate new dimensions for the rectangles
-                const rectangleWidth = slideWidth / 4;
-                const rectangleHeight = slideHeight / 4;
-
-                // Update CSS variables
-                document.documentElement.style.setProperty('--rectangle-width', `${rectangleWidth}px`);
-                document.documentElement.style.setProperty('--rectangle-height', `${rectangleHeight}px`);
-            }
+            const links = document.querySelectorAll('[data-one-time="true"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Allow the link to function once
+                    setTimeout(() => {
+                        link.classList.add('disabled-link');
+                        link.removeAttribute('data-link');
+                    }, 100);
+                });
+            });
 
         });
     </script>

@@ -27,6 +27,11 @@ html_content = """
                 display: inline;
                 margin-right: 10px; /* Optional: Adds space between links */
         }
+        .disabled-link {
+            pointer-events: none;
+            color: grey;
+            text-decoration: none;
+        }
         </style>
 	</head>
 
@@ -76,7 +81,7 @@ with open(input_answers, 'r') as file:
 html_content += '<section id=0>\n'
 html_content += '<div class="horizontal-links">\n'
 for x in range(0, len(topics)):
-    html_content += '<a href="#/' + topics[x] + '">' + topics[x] + '</a>\n'
+    html_content += '<a href="#/' + topics[x] + '" class="one-time-link">' + topics[x] + '</a>\n'
     if (x == len(topics)/2):
         html_content += '</div>\n<div class="horizontal-links">\n'
 html_content += '</div>\n'
@@ -123,6 +128,19 @@ html_content += """
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.one-time-link');
+            
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Allow the link to function once
+                    setTimeout(() => {
+                        link.classList.add('disabled-link');
+                        link.removeAttribute('href');
+                    }, 100);
+                });
+            });
+        });
 		</script>
 	</body>
 </html>
