@@ -21,6 +21,7 @@ html_content = """
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
 	</head>
 
 	<body>
@@ -39,7 +40,6 @@ with open(input_questions, 'r') as file:
             questions[z1] += lines1[i]
 
 
-
 #Reading Answers
 z2 = -1
 answers = ["" for _ in range(6)]
@@ -50,12 +50,29 @@ with open(input_answers, 'r') as file:
             z2 += 1
             answers[z2] += lines2[i]
 
-# Adding Questions and Answers
-for x in range(0, len(answers)):
-    html_content += '<section>\n'
-    html_content += '<section>' + questions[x] + '</section>\n'
-    html_content += '<section data-background-image="./memes/meme0.jpg" data-background-size="contain" data-background-position="center"></section>\n'
-    html_content += '<section>' + answers[x] + '</section>\n'
+#Reading images
+questions_with_images = -1
+images = []
+n_images = []
+for i in range(0, len(questions)-1):
+    if questions[i][len(questions[i]) - 3] == '#':
+        questions_with_images += 1
+        images.append(i)
+        n_images.append(int(questions[i][len(questions[i]) - 2]))
+print(images)
+print(n_images)
+
+#Adding Questions, Answers, Images
+for i in range(len(questions)):
+    html_content += '<section>'
+    html_content += '<section>'+questions[i]+'</section>\n'
+    if i in range(0, len(images)):
+        html_content += '<section>\n'
+        for j in range(0, n_images[i]):
+            html_content += '<img src="images/image' + str(images[i]) + '-' + str(j) + '.png"></img>'
+        html_content += '</section>\n'
+    html_content += '<section data-background="memes/meme0.png"></section\n>'
+    html_content += '<section>' + answers[i] + '</section>\n'
     html_content += '</section>\n'
 
 # Closing html tags
