@@ -14,8 +14,8 @@ html_content += """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rectangles in Reveal.js</title>
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+    <link rel="stylesheet" href="./dist/reveal.css">
+    <link rel="stylesheet" href="./dist/theme/white.css">
     <style>
         :root {
             --rectangle-width: 100%;
@@ -117,7 +117,7 @@ html_content += """
         </div>
     </div>
 
-    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="./dist/reveal.js"></script>
     <script>
         Reveal.initialize();
 
