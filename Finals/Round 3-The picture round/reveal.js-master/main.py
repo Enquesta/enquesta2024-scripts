@@ -109,20 +109,19 @@ print(images)
 print(n_images)
 
 # Rectangle Generation, Main Slide
-html_content += '<section data-background="Round3BG.png">\n<div class="main-slide">\n'
+html_content += '<section data-background="Round3BG.png" data-background-size="contain">\n<div class="main-slide">\n'
 for i in range(0,16):
     html_content += '<div class="rectangle" data-link="a'+str(i+2)+'" data-index="'+str(i+1)+'" data-one-time="true">'+str(i+1)+'</div>'
 html_content += '</div>\n</section>\n'
 
 # Question Slide generation
 for x in range(0, 16):
-    html_content += '<section>\n'
-    html_content += '<section><h4>Question ' +str(i+ 1)+ '</h4><p>'+questions[i]+'</p></section>\n'
+    html_content += '<section id="a'+str(i+2)+'>\n'
+    html_content += '<section><h4>Question ' +str(x+ 1)+ '</h4><p class="r-fit-text">'+questions[x]+'</p></section>\n'
     if i in images:
-        for j in range(0, n_images[images.index(i)]):
-            html_content += '<section>\n<div class="image-container">\n'
-            html_content += '<img src="images/image' + str(i) + '-' + str(j) + '.png">'
-            html_content += '</div>\n</section>\n'
+        html_content += '<section data-background=images/image'+str(x)+'-0.png data-background-size="contain">\n'
+
+        html_content += '</section>\n'
     html_content += '<section><p>' + answers[x] + '</p>\n<div class="option-buttons"><button class="remove-rectangle" data-index="'+str(x+1)+'">Correct!(Removes Box)</button>\n<button class="change-color" data-index="'+str(x+1)+'">Wrong!(Reddens Box)</button>\n</section>\n'
 
     html_content += '</section>\n'

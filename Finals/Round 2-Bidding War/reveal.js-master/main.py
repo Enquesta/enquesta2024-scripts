@@ -61,6 +61,18 @@ with open(input_questions, 'r') as file:
             questions[x1][z1] += lines[y]
             questions[x1][z1].replace('-','')
 
+#Reading images
+questions_with_images = -1
+images = []
+n_images = []
+for i in range(0, len(questions)-1):
+    if questions[i][len(questions[i]) - 3] == '#':
+        questions_with_images += 1
+        images.append(i)
+        n_images.append(int(questions[i][len(questions[i]) - 2]))
+print(images)
+print(n_images)
+
 # Reading Answers
 rows2,cols2=len(topics), 4
 answers = [["empty" for _ in range(cols2)] for _ in range(rows2)]
@@ -100,7 +112,12 @@ for x in range(0, len(topics)):
 
     for y in range(0, len(questions[x])):
         html_content += '<section id="'+ topics[x] + str(30-y*10)+str(x)+'">\n'
-        html_content += '<section>' + questions[x][y] + '</section>\n'
+        html_content += '<section><p class=""r-fit-text">' + questions[x][y] + '</p></section>\n'
+        if y in images:
+            html_content += '<section data-background=images/image' + str(
+                y) + '-0.png data-background-size="contain">\n'
+
+            html_content += '</section>\n'
         html_content += '<section data-background-image="memes/meme' + str(x) + (
             '.png" data-background-size="contain" data-background-position="center"></section>\n')
         html_content += '<section><p>' + answers[x][y]

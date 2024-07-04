@@ -80,13 +80,12 @@ print(n_images)
 #Adding Questions, Answers, Images
 for i in range(len(questions)):
     html_content += '<section>'
-    html_content += '<section><h4>Question ' +str(i+1)+'</h4><p>'+questions[i]+'<p></section>\n'
+    html_content += '<section><h4>Question ' +str(i+1)+'</h4><p class="r-fit-text">'+questions[i]+'<p></section>\n'
     if i in images:
-        for j in range(0, n_images[images.index(i)]):
-            html_content += '<section>\n<div class="image-container">\n'
-            html_content += '<img src="images/image' + str(i) + '-' + str(j) + '.png">'
-            html_content += '</div>\n</section>\n'
-    html_content += '<section data-background="memes/meme0.png"></section\n>'
+        html_content += '<section data-background=images/image'+str(i)+'-0.png data-background-size="contain">\n'
+
+        html_content += '</section>\n'
+    html_content += '<section data-background="memes/meme0.png" data-background-size="contain"></section\n>'
     html_content += '<section>' + answers[i] + '</section>\n'
     html_content += '</section>\n'
 
