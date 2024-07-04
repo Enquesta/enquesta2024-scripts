@@ -96,6 +96,18 @@ with open(input_answers, 'r') as file:
             z2 += 1
             answers[z2] += lines2[i]
 
+#Reading images
+questions_with_images = -1
+images = []
+n_images = []
+for i in range(0, len(questions)-1):
+    if questions[i][len(questions[i]) - 3] == '#':
+        questions_with_images += 1
+        images.append(i)
+        n_images.append(int(questions[i][len(questions[i]) - 2]))
+print(images)
+print(n_images)
+
 # Rectangle Generation, Main Slide
 html_content += '<section data-background="Round3BG.png">\n<div class="main-slide">\n'
 for i in range(0,16):
@@ -104,9 +116,13 @@ html_content += '</div>\n</section>\n'
 
 # Question Slide generation
 for x in range(0, 16):
-    html_content += '<section id="a'+str(x+2)+'">\n'
-    html_content += '<section>' + questions[x] + '</section>\n'
-    html_content += '<section></section>\n'
+    html_content += '<section>\n'
+    html_content += '<section><h4>Question ' +str(i+ 1)+ '</h4><p>'+questions[i]+'</p></section>\n'
+    if i in images:
+        for j in range(0, n_images[images.index(i)]):
+            html_content += '<section>\n<div class="image-container">\n'
+            html_content += '<img src="images/image' + str(i) + '-' + str(j) + '.png">'
+            html_content += '</div>\n</section>\n'
     html_content += '<section><p>' + answers[x] + '</p>\n<div class="option-buttons"><button class="remove-rectangle" data-index="'+str(x+1)+'">Correct!(Removes Box)</button>\n<button class="change-color" data-index="'+str(x+1)+'">Wrong!(Reddens Box)</button>\n</section>\n'
 
     html_content += '</section>\n'

@@ -21,6 +21,22 @@ html_content = """
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-sizing: border-box;
+        }
+    </style>
 	</head>
 
 	<body>
@@ -39,7 +55,6 @@ with open(input_questions, 'r') as file:
             questions[z1] += lines1[i]
 
 
-
 #Reading Answers
 z2 = -1
 answers = ["" for _ in range(12)]
@@ -50,12 +65,29 @@ with open(input_answers, 'r') as file:
             z2 += 1
             answers[z2] += lines2[i]
 
-# Adding Questions and Answers
-for x in range(0, len(answers)):
-    html_content += '<section>\n'
-    html_content += '<section>' + questions[x] + '</section>\n'
-    html_content += '<section data-background-image="memes/meme' + str(x) + ('.png" data-background-size="contain" data-background-position="center"></section>\n')
-    html_content += '<section>' + answers[x] + '</section>\n'
+#Reading images
+questions_with_images = -1
+images = []
+n_images = []
+for i in range(0, len(questions)-1):
+    if questions[i][len(questions[i]) - 3] == '#':
+        questions_with_images += 1
+        images.append(i)
+        n_images.append(int(questions[i][len(questions[i]) - 2]))
+print(images)
+print(n_images)
+
+#Adding Questions, Answers, Images
+for i in range(len(questions)):
+    html_content += '<section>'
+    html_content += '<section><h4>Question ' +str(i+1)+'</h4><p>'+questions[i]+'<p></section>\n'
+    if i in images:
+        for j in range(0, n_images[images.index(i)]):
+            html_content += '<section>\n<div class="image-container">\n'
+            html_content += '<img src="images/image' + str(i) + '-' + str(j) + '.png">'
+            html_content += '</div>\n</section>\n'
+    html_content += '<section data-background="memes/meme0.png"></section\n>'
+    html_content += '<section>' + answers[i] + '</section>\n'
     html_content += '</section>\n'
 
 # Closing html tags
@@ -77,6 +109,26 @@ html_content += """
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+			document.addEventListener('DOMContentLoaded', () => {
+    function updateImageSize() {
+        const imageContainer = document.querySelector('.image-container');
+        const image = imageContainer.querySelector('img');
+        const containerWidth = imageContainer.offsetWidth;
+        const containerHeight = imageContainer.offsetHeight;
+
+        // Ensure image fits within the container
+        if (image.naturalWidth > containerWidth || image.naturalHeight > containerHeight) {
+            image.style.maxWidth = `${containerWidth}px`;
+            image.style.maxHeight = `${containerHeight}px`;
+        } else {
+            image.style.maxWidth = '100%';
+            image.style.maxHeight = '100%';
+        }
+    }
+
+    updateImageSize();
+    window.addEventListener('resize', updateImageSize);
+});
 		</script>
 	</body>
 </html>

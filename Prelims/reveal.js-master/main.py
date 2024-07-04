@@ -1,11 +1,11 @@
 import os
 
-#File Paths
+# File Paths
 input_questions = 'questions.txt'
 input_answers = 'answers.txt'
 output_file = 'main1.html'
 
-#The main html stuff
+# The main html stuff
 html_content = """
 <!doctype html>
 <html lang="en">
@@ -21,32 +21,85 @@ html_content = """
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-sizing: border-box;
+        }
+    </style>
 	</head>
-	
+
 	<body>
 		<div class="reveal">
 			<div class="slides">
 """
 
 #Reading Questions
+z1 = -1
+questionsx = ["" for _ in range(6)]
 with open(input_questions, 'r') as file:
-    questions = file.readlines()
+    lines1 = file.readlines()
+    for i in range(len(lines1)):
+        if (lines1[i].startswith('-')):
+            z1 += 1
+            questionsx[z1] += lines1[i]
 
-#Adding Questions
-for question in questions:
-    html_content += '<section>' + question + '</section>\n'
 
 #Reading Answers
+z2 = -1
+answers = ["" for _ in range(6)]
 with open(input_answers, 'r') as file:
-    answers = file.readlines()
+    lines2 = file.readlines()
+    for i in range(len(lines2)):
+        if (lines2[i].startswith('-')):
+            z2 += 1
+            answers[z2] += lines2[i]
 
-#Adding Answers
-html_content += '<section>'
-for answer in answers:
-    html_content += '<p class="fragment">' + answer + '</p>\n'
-html_content += '</section>'
+#Reading images
+questions_with_images = -1
+images = []
+n_images = []
+for i in range(0, len(questionsx)-1):
+    if questionsx[i][len(questionsx[i]) - 3] == '#':
+        questions_with_images += 1
+        images.append(i)
+        n_images.append(int(questionsx[i][len(questionsx[i]) - 2]))
+print(images)
+print(n_images)
 
-#Closing html tags
+#Formatting Questions
+questions = []
+for i in questionsx:
+    string = ""
+    for j in range(len(i)):
+        if j>0 and (j<len(i)-2):
+            string += i[j]
+    questions.append(i)
+
+
+#Adding Questions and Images
+for i in range(len(questions)):
+    html_content += '<section>\n'
+    html_content += '<section><h4>Question ' +str(i+1)+ '</h4><p>'+questions[i]+'</p></section>\n'
+    if i in images:
+        for j in range(0, n_images[images.index(i)]):
+            html_content += '<section>\n<div class="image-container">\n'
+            html_content += '<img src="images/image' + str(i) + '-' + str(j) + '.png">'
+            html_content += '</div>\n</section>\n'
+    html_content += '</section>\n'
+
+
+# Closing html tags
 html_content += """			
             </div>
 		</div>
@@ -65,12 +118,32 @@ html_content += """
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+			document.addEventListener('DOMContentLoaded', () => {
+    function updateImageSize() {
+        const imageContainer = document.querySelector('.image-container');
+        const image = imageContainer.querySelector('img');
+        const containerWidth = imageContainer.offsetWidth;
+        const containerHeight = imageContainer.offsetHeight;
+
+        // Ensure image fits within the container
+        if (image.naturalWidth > containerWidth || image.naturalHeight > containerHeight) {
+            image.style.maxWidth = `${containerWidth}px`;
+            image.style.maxHeight = `${containerHeight}px`;
+        } else {
+            image.style.maxWidth = '100%';
+            image.style.maxHeight = '100%';
+        }
+    }
+
+    updateImageSize();
+    window.addEventListener('resize', updateImageSize);
+});
 		</script>
 	</body>
 </html>
 """
 
-#Adding html content to file
+# Adding html content to file
 with open(output_file, 'w') as file:
     file.write(html_content)
 

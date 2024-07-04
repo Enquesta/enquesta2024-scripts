@@ -13,20 +13,68 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-sizing: border-box;
+        }
+    </style>
 	</head>
-	
+
 	<body>
 		<div class="reveal">
 			<div class="slides">
-<section>What is the capital of France?
+<section>
+<section><h4>Question 1</h4><p>-Eustachius Benedictus de Lannoy was a skilled military strategist and commander who originally worked for the Dutch navy. After being taken as a prisoner of war by the army of the Kingdom of X, he decided to take up the offer of the King to serve in the local army which he did for 37 years. This was the first time in modern history that an Asian power had managed to defeat a major European force. His help would later help expand the kingdom and modernise the army.The inscriptions on his tomb at the De Lannoy Fort can be seen in the image below.Identify this kingdom.#1
+</p></section>
+<section>
+<div class="image-container">
+<img src="images/image0-0.png"></div>
 </section>
-<section>What are the benefits of a balanced diet?
 </section>
-<section>Goofy ahh question</section>
-<section><p class="fragment">1) Paris
-</p>
-<p class="fragment">2) Increased health, mental fitness</p>
-</section>			
+<section>
+<section><h4>Question 2</h4><p>-Connect.#1
+</p></section>
+<section>
+<div class="image-container">
+<img src="images/image1-0.png"></div>
+</section>
+</section>
+<section>
+<section><h4>Question 3</h4><p>-The Indian Express describes X as a place that once thrived on agriculture and later moved on to industries due to modernisation. Another reason they state for the decline of farming in the area is the effluents from the factories polluting the water. Before people inhabited the area, it was all hills and forests. During winter, one could see mist covering the hilltops. In 2006, the person (receiving the award) in the photo, Y did something here to save his friend, the memory of which has been renewed in our minds by a piece of popular media. Where is X?#1
+</p></section>
+<section>
+<div class="image-container">
+<img src="images/image2-0.png"></div>
+</section>
+</section>
+<section>
+<section><h4>Question 4</h4><p>-The cultural capital of the region it is in, this city has a prominent banking industry because of its production of gold jewelry. The city’s name comes from the name of the deity in one of the most prominent temples in the city. Recently X has been in the news as a particular flower (not literally) has unexpectedly bloomed here when someone finally “took X from the public”. 
+</p></section>
+</section>
+<section>
+<section><h4>Question 5</h4><p>-On 29 June 2024, something happened that prompted netizens to ponder about whether there were certain lucky charms that influenced the outcome of the day.To prove this, four examples were given out of which three are shown below. Who/What was the fourth lucky charm?#1
+</p></section>
+<section>
+<div class="image-container">
+<img src="images/image4-0.png"></div>
+</section>
+</section>
+<section>
+<section><h4>Question 6</h4><p>-Richard Philips Feynman was an American theoretical physicist and Nobel Prize Winner.He was a keen popularizer of physics through his books and lectures and still remains one of the coolest physicists ever with his comical approach to physics and life.The following is an excerpt from an interview. He is talking about something which at one point most of would have seen albeit not directly.
+</p></section>
+</section>
+			
             </div>
 		</div>
 
@@ -44,6 +92,26 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+			document.addEventListener('DOMContentLoaded', () => {
+    function updateImageSize() {
+        const imageContainer = document.querySelector('.image-container');
+        const image = imageContainer.querySelector('img');
+        const containerWidth = imageContainer.offsetWidth;
+        const containerHeight = imageContainer.offsetHeight;
+
+        // Ensure image fits within the container
+        if (image.naturalWidth > containerWidth || image.naturalHeight > containerHeight) {
+            image.style.maxWidth = `${containerWidth}px`;
+            image.style.maxHeight = `${containerHeight}px`;
+        } else {
+            image.style.maxWidth = '100%';
+            image.style.maxHeight = '100%';
+        }
+    }
+
+    updateImageSize();
+    window.addEventListener('resize', updateImageSize);
+});
 		</script>
 	</body>
 </html>
