@@ -13,7 +13,22 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-sizing: border-box;
+        }
+    </style>
 	</head>
 
 	<body>
@@ -22,7 +37,9 @@
 <section><section>-X is a famous actor who starred in the movie ___. Recently this movie came under a lot of fire as one of the leaders of the nation claimed that this movie popularized someone more than his actions. Identify the movie.#1
 </section>
 <section>
-<img src="images/image0-0.png"></img></section>
+<div class="image-container">
+<img src="images/image0-0.png"></div>
+</section>
 <section data-background="memes/meme0.png"></section
 ><section>-Gandhi
 </section>
@@ -30,7 +47,29 @@
 <section><section>-In 1896, a war broke out between the UK and Zanzibar, which is now a part of modern day Tanzania. The war which started at 9:02am and took the life of around 500 Zanzibar people and wounded one British soldier, ended when the British lowered their flag at 9:40am. What world record did this war set?#6
 </section>
 <section>
-<img src="images/image1-0.png"></img><img src="images/image1-1.png"></img><img src="images/image1-2.png"></img><img src="images/image1-3.png"></img><img src="images/image1-4.png"></img><img src="images/image1-5.png"></img></section>
+<div class="image-container">
+<img src="images/image1-0.png"></div>
+</section>
+<section>
+<div class="image-container">
+<img src="images/image1-1.png"></div>
+</section>
+<section>
+<div class="image-container">
+<img src="images/image1-2.png"></div>
+</section>
+<section>
+<div class="image-container">
+<img src="images/image1-3.png"></div>
+</section>
+<section>
+<div class="image-container">
+<img src="images/image1-4.png"></div>
+</section>
+<section>
+<div class="image-container">
+<img src="images/image1-5.png"></div>
+</section>
 <section data-background="memes/meme0.png"></section
 ><section>-Shortest  war (38 mins)
 </section>
@@ -38,7 +77,9 @@
 <section><section>-X is a small town located in the Ernakulam district of Kerala. The name X is believed to have stemmed from the local word for ‘misty mountain’.  A popular Malayalam movie features X in its name. Identify the place which was the hometown of Siju David who got the President's award for his bravery.#1
 </section>
 <section>
-<img src="images/image2-0.png"></img></section>
+<div class="image-container">
+<img src="images/image2-0.png"></div>
+</section>
 <section data-background="memes/meme0.png"></section
 ><section>-Manjummel
 </section>
@@ -46,7 +87,17 @@
 <section><section>-A very famous photograph was taken on February 14 ,1990 having every single being on earth in it, which was referred to as the family portrait . Identify the artist behind it. Identify the name of the photograph.#3
 </section>
 <section>
-<img src="images/image3-0.png"></img><img src="images/image3-1.png"></img><img src="images/image3-2.png"></img></section>
+<div class="image-container">
+<img src="images/image3-0.png"></div>
+</section>
+<section>
+<div class="image-container">
+<img src="images/image3-1.png"></div>
+</section>
+<section>
+<div class="image-container">
+<img src="images/image3-2.png"></div>
+</section>
 <section data-background="memes/meme0.png"></section
 ><section>-Voyager 1 'The pale blue dot’
 </section>
@@ -80,6 +131,26 @@
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+			document.addEventListener('DOMContentLoaded', () => {
+    function updateImageSize() {
+        const imageContainer = document.querySelector('.image-container');
+        const image = imageContainer.querySelector('img');
+        const containerWidth = imageContainer.offsetWidth;
+        const containerHeight = imageContainer.offsetHeight;
+
+        // Ensure image fits within the container
+        if (image.naturalWidth > containerWidth || image.naturalHeight > containerHeight) {
+            image.style.maxWidth = `${containerWidth}px`;
+            image.style.maxHeight = `${containerHeight}px`;
+        } else {
+            image.style.maxWidth = '100%';
+            image.style.maxHeight = '100%';
+        }
+    }
+
+    updateImageSize();
+    window.addEventListener('resize', updateImageSize);
+});
 		</script>
 	</body>
 </html>

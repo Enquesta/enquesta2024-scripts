@@ -21,7 +21,22 @@ html_content = """
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-sizing: border-box;
+        }
+    </style>
 	</head>
 
 	<body>
@@ -67,10 +82,10 @@ for i in range(len(questions)):
     html_content += '<section>'
     html_content += '<section>'+questions[i]+'</section>\n'
     if i in range(0, len(images)):
-        html_content += '<section>\n'
         for j in range(0, n_images[i]):
-            html_content += '<img src="images/image' + str(images[i]) + '-' + str(j) + '.png"></img>'
-        html_content += '</section>\n'
+            html_content += '<section>\n<div class="image-container">\n'
+            html_content += '<img src="images/image' + str(images[i]) + '-' + str(j) + '.png">'
+            html_content += '</div>\n</section>\n'
     html_content += '<section data-background="memes/meme0.png"></section\n>'
     html_content += '<section>' + answers[i] + '</section>\n'
     html_content += '</section>\n'
@@ -94,6 +109,26 @@ html_content += """
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+			document.addEventListener('DOMContentLoaded', () => {
+    function updateImageSize() {
+        const imageContainer = document.querySelector('.image-container');
+        const image = imageContainer.querySelector('img');
+        const containerWidth = imageContainer.offsetWidth;
+        const containerHeight = imageContainer.offsetHeight;
+
+        // Ensure image fits within the container
+        if (image.naturalWidth > containerWidth || image.naturalHeight > containerHeight) {
+            image.style.maxWidth = `${containerWidth}px`;
+            image.style.maxHeight = `${containerHeight}px`;
+        } else {
+            image.style.maxWidth = '100%';
+            image.style.maxHeight = '100%';
+        }
+    }
+
+    updateImageSize();
+    window.addEventListener('resize', updateImageSize);
+});
 		</script>
 	</body>
 </html>
