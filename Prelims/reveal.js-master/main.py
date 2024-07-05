@@ -22,19 +22,14 @@ html_content = """
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
     <style>
-        .image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+        .custom-slide {
+            border: 5px solid yellow; /* Add a yellow border */
+            border-radius: 15px; /* Rounded corners */
+            padding: 20px; /* Adjust padding for better appearance */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
         }
-        .image-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            box-sizing: border-box;
+        .custom-slide h2 {
+            margin-top: 0; /* Remove default top margin for better alignment */
         }
     </style>
 	</head>
@@ -46,7 +41,7 @@ html_content = """
 
 #Reading Questions
 z1 = -1
-questionsx = ["" for _ in range(6)]
+questionsx = ["" for _ in range(20)]
 with open(input_questions, 'r') as file:
     lines1 = file.readlines()
     for i in range(len(lines1)):
@@ -55,15 +50,6 @@ with open(input_questions, 'r') as file:
             questionsx[z1] += lines1[i]
 
 
-#Reading Answers
-z2 = -1
-answers = ["" for _ in range(6)]
-with open(input_answers, 'r') as file:
-    lines2 = file.readlines()
-    for i in range(len(lines2)):
-        if (lines2[i].startswith('-')):
-            z2 += 1
-            answers[z2] += lines2[i]
 
 #Reading images
 questions_with_images = -1
@@ -90,12 +76,12 @@ for i in questionsx:
 #Adding Questions and Images
 for i in range(len(questions)):
     html_content += '<section>\n'
-    html_content += '<section><h4>Question ' +str(i+1)+ '</h4><p>'+questions[i]+'</p></section>\n'
+    html_content += '<section data-background="prelimsimage.png"'
+    if (i+1)%4==0:
+        html_content += ' class="custom-slide"'
+    html_content += '><h4>Question ' +str(i+1)+ '</h4><p class="r-fit-text">'+questions[i]+'</p></section>\n'
     if i in images:
-        for j in range(0, n_images[images.index(i)]):
-            html_content += '<section>\n<div class="image-container">\n'
-            html_content += '<img src="images/image' + str(i) + '-' + str(j) + '.png">'
-            html_content += '</div>\n</section>\n'
+        html_content += '<section data-background="images/image'+str(i)+'-0.png" data-background-size="contain">\n</section>'
     html_content += '</section>\n'
 
 

@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangles in Reveal.js</title>
+    <link rel="stylesheet" href="./dist/reveal.css">
+    <link rel="stylesheet" href="./dist/theme/white.css">
+    <style>
+        :root {
+            --rectangle-width: 100%;
+            --rectangle-height: 100%;
+        }
+        .main-slide{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 0px;
+            margin-top: -2.5%;
+            margin-left: -10%;
+            width: 105vw;
+            height: 105vh;
+        }
+        .rectangle {
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            height: var(--rectangle-height); /* Full height of grid cell */
+            width: var(--rectangle-width); /* Full width of grid cell */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .rectangle:hover {
+            transform: scale(1.05);
+        }
+        .rectangle.transparent {
+            background-color: transparent;
+            opacity: 0; /* Adjust opacity as needed */
+        }
+        .option-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .option-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .disabled-link {
+            pointer-events: none;
+            color: grey;
+            text-decoration: none;
+        }
+                .remove-rectangle{
+            background-color: #4CAF50; /* Green background */
+            border: none;             /* Remove border */
+            color: white;             /* White text */
+            padding: 15px 32px;       /* Padding */
+            text-align: center;       /* Center text */
+            text-decoration: none;    /* Remove underline */
+            display: inline-block;    /* Display inline-block */
+            font-size: 16px;          /* Font size */
+            margin: 4px 2px;          /* Margin */
+            cursor: pointer;          /* Pointer cursor on hover */
+            border-radius: 12px;      /* Rounded corners */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Add shadow */
+            transition: 0.3s; /* Smooth transition for shadow and hover */
+        }
+
+        /* Hover effects */
+        .remove-rectangle:hover {
+            background-color: #45a049; /* Darker green background */
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Change shadow */
+        }
+
+        /* Active state */
+        .remove-rectangle:active {
+            background-color: #3e8e41; /* Even darker green background */
+            transform: translateY(2px); /* Move down a bit when clicked */
+        }
+
+        /* Add focus outline */
+        .remove-rectangle:focus {
+            outline: none; /* Remove default focus outline */
+            box-shadow: 0 0 8px rgba(0, 140, 186, 0.5); /* Add custom focus outline */
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Main Slide with rectangles -->
+<section data-background="Round3BG.png">
+<div class="main-slide">
+<div class="rectangle" data-link="a2" data-index="1" data-one-time="true">1</div><div class="rectangle" data-link="a3" data-index="2" data-one-time="true">2</div><div class="rectangle" data-link="a4" data-index="3" data-one-time="true">3</div><div class="rectangle" data-link="a5" data-index="4" data-one-time="true">4</div><div class="rectangle" data-link="a6" data-index="5" data-one-time="true">5</div><div class="rectangle" data-link="a7" data-index="6" data-one-time="true">6</div><div class="rectangle" data-link="a8" data-index="7" data-one-time="true">7</div><div class="rectangle" data-link="a9" data-index="8" data-one-time="true">8</div><div class="rectangle" data-link="a10" data-index="9" data-one-time="true">9</div><div class="rectangle" data-link="a11" data-index="10" data-one-time="true">10</div><div class="rectangle" data-link="a12" data-index="11" data-one-time="true">11</div><div class="rectangle" data-link="a13" data-index="12" data-one-time="true">12</div><div class="rectangle" data-link="a14" data-index="13" data-one-time="true">13</div><div class="rectangle" data-link="a15" data-index="14" data-one-time="true">14</div><div class="rectangle" data-link="a16" data-index="15" data-one-time="true">15</div><div class="rectangle" data-link="a17" data-index="16" data-one-time="true">16</div></div>
+</section>
+<section id="a2">
+<section><h4>Question 1</h4><p class="r-fit-text">-X is a 3 minute long Malayalam Political satire which addresses political situations in humorous manner. It was first aired on 11 September 2000 and continues to air today. The first episode has the story of a poet laundering money off a person in context of a prestigious award. With more than 8000 episodes X is the longest running satire show in India . This skit is known for its iconic soundtrack and the words of wisdom at the end of each episode. Identify X. 
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-Munshi (Asianet News)
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="1">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a3">
+<section><h4>Question 2</h4><p class="r-fit-text">-X is an Indian Multinational cooperative society founded in 1946. In the 2024 T20 Cricket World Cup, X sponsored USA, South Africa and Sri Lanka. A competitor of X from Karnataka, Y sponsored Scotland and Ireland for the same competition. X and Y have been fighting for years over their competition when X started entering the region where Y primarily operated in. Both X and Y primarily produce lacticinia that are consumed all over the world. What is X and Y?
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-2
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="2">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a4">
+<section><h4>Question 3</h4><p class="r-fit-text">-In 2024, a highly publicized feud involving a well-known Toronto-based individual and a Pulitzer Prize winner generated immense media attention. This unexpected rivalry inadvertently sparked a significant increase in interest towards New Ho King, a renowned Chinese restaurant located in Toronto's vibrant Chinatown because this restaurant had somehow managed to feature in both the sides of the story. What are we talking about?
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-Drake vs Kendrick Lamarck
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="3">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a5">
+<section><h4>Question 4</h4><p class="r-fit-text">-After the assembly elections in Kerala in 2011, Amul launched an advertisement as given below. This was released after a Kerala politician X called Rahul Gandhi an Amul Baby. X was one of the longest serving Opposition Ministers in the Kerala Legislative Assembly and is the senior most CPI(M) leader.#1
+</p></section>
+<section data-background=images/image3-0.png data-background-size="contain">
+</section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-V S Achuthanandan
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="4">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a6">
+<section><h4>Question 5</h4><p class="r-fit-text">-Between 26th and 27th June 2024, something happened in the field of sports that added one duo directly to the top of the list. Who was this duo and what did they do?#1
+</p></section>
+<section data-background=images/image4-0.png data-background-size="contain">
+</section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-Lebron and Bronny James
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="5">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a7">
+<section><h4>Question 6</h4><p class="r-fit-text">-On July 3, 2024, a certain company, once called a popular app’s rival, announced its decision to shut down because of funding issues. Started in 2019 by Aprameya Radhakrishna and Mayank Bidawatka, the company rose to fame during the 2019 farmer’s protests when many members of the Indian Cabinet decided to shift their user base to this company. What are we talking about which is the “yellow bird” version of the branding it copied from another similar app with similar user base and functionality?
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-Koo
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="6">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a8">
+<section><h4>Question 7</h4><p class="r-fit-text">-The Grumman F11 Tiger is a supersonic single-seat carrier-based US Navy Fighter aircraft in operation during the 1950s and 1960s. While the F-11’s fighter career was short, it was used by the Blue Angels from 1957-1968. On 21 September 1956, this plane set a record for being the first one to perform something which can be attributed to its speed and very bad luck. What was the record which was set by pilot Tom Attridge during a test firing of its cannons?
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-Shooting itself
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="7">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a9">
+<section><h4>Question 8</h4><p class="r-fit-text">-Following Mbappe’s nose injury in a game against Austria, fans suggested that Mbappe wear a mask which would help showcase his resemblance to an animated character from a prominent tv show. Hilariously, PSG’s Thiago Silva had gifted him a full face mask of the character in orange and green in 2017. Identify the TV Show.
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-8
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="8">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a10">
+<section><h4>Question 9</h4><p class="r-fit-text">-Krishna Pandit Bhanji is a famous actor who starred in a popular biographical film. Recently this movie came under a lot of fire as one of the leaders of the nation claimed that this movie was the sole reason the a particular person of national importance was famous all over the world. Identify the movie and its director.
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-Gandhi
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="9">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a11">
+<section><h4>Question 10</h4><p class="r-fit-text">-In 2017, the company "X" (formerly known as Twitter) doubled its character limit from 140 characters to 280 characters, to which Man City tweeted in response and attaching a video. What was the response hidden by the red rectangle?#1
+</p></section>
+<section data-background=images/image9-0.png data-background-size="contain">
+</section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-AGUEROOOOOOOOOOOOO..
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="10">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a12">
+<section><h4>Question 11</h4><p class="r-fit-text">-If a judge were to punish you for lying in his court using Section 191 of the Indian Penal Code (Punishment for false evidence) today, he would be making a technical mistake. However, if he would have given the same punishment a week ago, the judgement would hold. What mistake are we talking about?
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-Indian Penal Code is not in effect from last week
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="11">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a13">
+<section><h4>Question 12</h4><p class="r-fit-text">-Neon Genesis Evangelion is a Japanese  mecha anime television series set fifteen years after a worldwide cataclysm. The protagonist, Ikari Shinji is recruited to fight in biomechanical robots called Evangelion units against certain beings like Sachiel, Shamshel, Gaghiel, etc. X, the first such being, came to earth to propagate its progeny. Interestingly, these ‘Eva’ units were made from the body of X. What is X's name?
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-Adam
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="12">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a14">
+<section><h4>Question 13</h4><p class="r-fit-text">-What institution under the government of Kerala is based on the principles mentioned in the song:#1
+</p></section>
+<section data-background=images/image12-0.png data-background-size="contain">
+</section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-13
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="13">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a15">
+<section><h4>Question 14</h4><p class="r-fit-text">-Put funda.#1
+</p></section>
+<section data-background=images/image13-0.png data-background-size="contain">
+</section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-Toblerone
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="14">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a16">
+<section><h4>Question 15</h4><p class="r-fit-text">-While filming Fast and Furious:Tokyo Drift, they couldn't get a permit to film a scene. They filmed it anyway, and the studio hired a ____ ___ to claim to be the director and spend a night in jail. In this scene, Sean Boswell, the protagonist, races through a specific street in Tokyo, causing chaos and evading the police. A movie of the same name as the person they hired was released recently. FITB (Fill in the Blanks).
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-15
+</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="15">Correct!(Removes Box)</button>
+</section>
+</section>
+<section id="a17">
+<section><h4>Question 16</h4><p class="r-fit-text">-The casting of a particular character in a movie from the past decade was an elaborate process. The person in charge for finding the right cast recalled: "There's this thing about them, they're just cute. They're not overly large or small, they're just a cuddly ___ with those big sad eyes". Etc, etc, etc.
+</p></section>
+<section data-background="memes/meme0.png"></section>
+<section><p>-John Wick's dog</p>
+<div class="option-buttons"><button class="remove-rectangle" data-index="16">Correct!(Removes Box)</button>
+</section>
+</section>
+
+        </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+    <script>
+        Reveal.initialize();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainSlide = document.querySelector('.main-slide');
+
+            mainSlide.addEventListener('click', (event) => {
+                const rectangle = event.target.closest('.rectangle');
+                if (rectangle) {
+                    const link = rectangle.getAttribute('data-link');
+                    const targetSlide = document.querySelector(`#${link}`);
+                    if (targetSlide) {
+                        const slideIndex = [...document.querySelectorAll('.slides > section')].indexOf(targetSlide);
+                        Reveal.slide(slideIndex);
+                    }
+                }
+            });
+
+            function addOptionEventListeners() {
+                const removeButtons = document.querySelectorAll('.remove-rectangle');
+                const changeColorButtons = document.querySelectorAll('.change-color');
+
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const index = button.getAttribute('data-index') - 1;
+                        const rectangle = mainSlide.querySelector(`.rectangle[data-index="${index + 1}"]`);
+                        if (rectangle) {
+                            rectangle.classList.add('transparent'); // Make rectangle transparent
+                        }
+                    });
+                });
+
+                changeColorButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const index = button.getAttribute('data-index') - 1;
+                        const rectangle = mainSlide.querySelector(`.rectangle[data-index="${index + 1}"]`);
+                        if (rectangle) {
+                            rectangle.style.backgroundColor = 'red'; // Change to desired color
+                        }
+                    });
+                });
+            }
+
+            addOptionEventListeners();
+            const links = document.querySelectorAll('[data-one-time="true"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Allow the link to function once
+                    setTimeout(() => {
+                        link.classList.add('disabled-link');
+                        link.removeAttribute('data-link');
+                    }, 100);
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
+
