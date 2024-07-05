@@ -13,7 +13,7 @@ html_content = """
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Enquesta-Round 1-Pounce and Bounce</title>
+		<title>Enquesta-Round 4-Lifeline</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -80,7 +80,7 @@ print(n_images)
 #Adding Questions, Answers, Images
 for i in range(len(questions)):
     html_content += '<section>'
-    html_content += '<section><h4>Question ' +str(i+1)+'</h4><p class="r-fit-text">'+questions[i]+'<p></section>\n'
+    html_content += '<section data-background="logoslides/logoslides.png"><h4>Question ' +str(i+1)+'</h4><p class="r-fit-text">'+questions[i]+'<p></section>\n'
     if i in images:
         html_content += '<section data-background=images/image'+str(i)+'-0.png data-background-size="contain">\n'
 

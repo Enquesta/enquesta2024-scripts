@@ -150,12 +150,12 @@ html_content += '</div>\n</section>\n'
 # Question Slide generation
 for x in range(0, 16):
     html_content += '<section id="a'+str(x+2)+'">\n'
-    html_content += '<section><h4>Question ' +str(x+ 1)+ '</h4><p class="r-fit-text">'+questions[x]+'</p></section>\n'
+    html_content += '<section data-background="logoslides/logoslides.png"><h4>Question ' +str(x+ 1)+ '</h4><p class="r-fit-text">'+questions[x]+'</p></section>\n'
     if x in images:
         html_content += '<section data-background=images/image'+str(x)+'-0.png data-background-size="contain">\n'
 
         html_content += '</section>\n'
-    html_content += '<section data-background="memes/meme0.png"></section>\n'
+    html_content += '<section data-background="safety/safety0.png"></section>\n'
     html_content += '<section><p>' + answers[x] + '</p>\n<div class="option-buttons"><button class="remove-rectangle" data-index="'+str(x+1)+'">Correct!(Removes Box)</button>\n</section>\n'
 
     html_content += '</section>\n'
