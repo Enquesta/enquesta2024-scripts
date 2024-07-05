@@ -66,6 +66,39 @@ html_content += """
             color: grey;
             text-decoration: none;
         }
+                .remove-rectangle{
+            background-color: #4CAF50; /* Green background */
+            border: none;             /* Remove border */
+            color: white;             /* White text */
+            padding: 15px 32px;       /* Padding */
+            text-align: center;       /* Center text */
+            text-decoration: none;    /* Remove underline */
+            display: inline-block;    /* Display inline-block */
+            font-size: 16px;          /* Font size */
+            margin: 4px 2px;          /* Margin */
+            cursor: pointer;          /* Pointer cursor on hover */
+            border-radius: 12px;      /* Rounded corners */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Add shadow */
+            transition: 0.3s; /* Smooth transition for shadow and hover */
+        }
+
+        /* Hover effects */
+        .remove-rectangle:hover {
+            background-color: #45a049; /* Darker green background */
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Change shadow */
+        }
+
+        /* Active state */
+        .remove-rectangle:active {
+            background-color: #3e8e41; /* Even darker green background */
+            transform: translateY(2px); /* Move down a bit when clicked */
+        }
+
+        /* Add focus outline */
+        .remove-rectangle:focus {
+            outline: none; /* Remove default focus outline */
+            box-shadow: 0 0 8px rgba(0, 140, 186, 0.5); /* Add custom focus outline */
+        }
     </style>
 </head>
 <body>
@@ -123,7 +156,7 @@ for x in range(0, 16):
 
         html_content += '</section>\n'
     html_content += '<section data-background="memes/meme0.png"></section>\n'
-    html_content += '<section><p>' + answers[x] + '</p>\n<div class="option-buttons"><button class="remove-rectangle" data-index="'+str(x+1)+'">Correct!(Removes Box)</button>\n<button class="change-color" data-index="'+str(x+1)+'">Wrong!(Reddens Box)</button>\n</section>\n'
+    html_content += '<section><p>' + answers[x] + '</p>\n<div class="option-buttons"><button class="remove-rectangle" data-index="'+str(x+1)+'">Correct!(Removes Box)</button>\n</section>\n'
 
     html_content += '</section>\n'
 
